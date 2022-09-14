@@ -11,7 +11,7 @@ library(flexclust)
 #Carregamento dos dados
 data("mtcars")
 
-df=scale(mtcars)
+df <- scale(mtcars)
 head(df, n=3)
 
 
@@ -22,14 +22,14 @@ fviz_nbclust(df, kmeans, method = "wss")+
 # Clusterização k-means
 
 # set.seed(123)
-km.res=kmeans(df, 4, nstart=25)
+km.res <- kmeans(df, 4, nstart=25)
 print(km.res)  
 
 aggregate(df, by=list(cluster=km.res$cluster), mean)
 
 
 
-df2=cbind(df, cluster=km.res$cluster)
+df2 <- cbind(df, cluster=km.res$cluster)
 head(df2)
 
 # PLOT !!!!!!!!!!!!!!!!!!!
@@ -49,12 +49,12 @@ fviz_cluster(km.res, data=df2,
 #Carregamento dos dados
 # data("mtcars")
 
-df=scale(df) # padonização Z(0,1)
+df <- scale(df) # padonização Z(0,1)
 head(df, n=3)
 
 
 # method = "euclidean", "maximum", "manhattan", "canberra"
-dista=dist(df, method="euclidean")
+dista <- dist(df, method="euclidean")
 as.matrix(dista)[1:5,1:5]
 
 
